@@ -1,0 +1,52 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+      <link rel="stylesheet" href="{% static 'app/css/style.css' %}">
+</head>
+  <body>
+    <div class="bg-div"></div>
+    <div class="main-container"> 
+      <div class="container mb-3 mt-5">
+        <div class="form-div w-100 mt-4">
+        <h1 class="text-center w-100">YouTube Downloader</h1>
+          <form class="form mt-100" action="/search/" method="POST">
+            {% csrf_token %}
+            <input type="url" class="glass-bar" name="yt_url" id="Input1" placeholder="Paste YouTube URL Here">
+            <button class="btn btn-dark mx-3" type="submit">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    {% comment %} {% if title %} {% endcomment %}
+    {% comment %} <img src="{% static 'app/svg/ball.svg' %}" alt="" class="circle1" height="300px">
+    <img src="{% static 'app/svg/ball3.svg' %}" alt="" class="circle2" height="600px">
+    <img src="{% static 'app/svg/ball2.svg' %}" alt="" class="circle3" height="500px"> {% endcomment %}
+    <div class="video-container"> 
+      <div class="thumb-div">
+        <img src="{{thumb_url}}" alt="">
+      </div>
+      <div class="download-btn-div">
+        <h3 class="video-title mb-5">{{title}}</h3>
+        
+        {% for stream in streams %}
+        <a href="{{stream.url}}" target="_blank" class="btn btn-lg btn-dark w-100 mb-2">Download {{stream.resolution}}</a>
+        {% endfor %}
+        
+      </div>
+    </div>
+    {% comment %} {% endif %} {% endcomment %}
+    
+    
+  </div>
+      
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+  </body>
+</html>
