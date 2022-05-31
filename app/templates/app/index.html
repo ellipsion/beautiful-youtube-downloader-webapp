@@ -55,7 +55,7 @@
                         </div>
                         {% for stream  in streams %}
                         <div class="style-card">
-                                <a class="download-btn w-100">Download {{stream.resolution}}</a>
+                                <a href="{{stream.url}}" target="_blank" class="download-btn w-100">Download {{stream.resolution}}</a>
                             </div>
                         {% endfor %}
                     </div>
