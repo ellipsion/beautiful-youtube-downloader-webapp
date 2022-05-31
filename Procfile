@@ -1,1 +1,1 @@
-"web: gunicorn youtube_downloade.wsgi --log-file -" 
+"web: gunicorn youtube_downloader.wsgi --log-file" 
