@@ -1,1 +1,1 @@
-web: gunicorn youtube_downloader.wsgi:application --log-file
+web: gunicorn youtube_downloader.wsgi:application
