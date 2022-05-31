@@ -122,7 +122,7 @@ USE_TZ = True
 WHITENOISE_USE_FINDERS = True
 # DISABLE_COLLECTSTATIC = True
 STATIC_URL = 'static/'
-STATICFILES_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
