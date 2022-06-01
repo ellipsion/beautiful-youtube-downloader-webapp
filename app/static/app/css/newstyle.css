@@ -95,6 +95,11 @@ body {
 
 }
 
+.error-title {
+    font-size: 13rem;
+    margin: 0.35em 0;
+}
+
 .search-wrap {
     display: flex;
     flex-direction: row;
@@ -366,6 +371,11 @@ body {
     .style-card-thumb {
         /* justify-content: flex-start; */
         align-items: center;
+    }
+
+    .error-title {
+        font-size: 5rem;
+        /* margin-top: 0.35em; */
     }
 }
 
