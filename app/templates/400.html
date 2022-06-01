@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="{% static 'app/images/favicon.png' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'app/css/newstyle.css' %}">
+    <title>400 | Videoco</title>
+</head>
+<body>
+    <div class="layout">
+        <div class="header">
+            <div class="header-wrap">
+                <div class="logo">
+                    <a class="logo-link" href="/">
+                        <span  class="icon">
+                            <img src="{% static 'app/images/icon.png' %}" alt="">
+                        </span>
+                        <span  class="text">Videoco</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="main-page">
+            <div class="gradient"></div>
+            <div class="container">
+                <section class="main-hero-section">
+                    <div class="hero-content-wrap">
+                        <h1 class="error-title title" id="title" > 400 </h1>
+                        
+                    </div>
+                </section>
+                <section class="results-section">
+                    {% if title %}
+                    <div class="title-wrap">
+                        <h2>{{title}}</h2>
+                    </div>
+                    <div class="video-card-wrap">
+                        <div class="style-card style-card-thumb">
+                            <img src="{{thumb_url}}" alt="">
+                        </div>
+                        <div class="style-card">
+                            <h3 class="card-title">video</h3>
+                                {% for stream  in streams %}
+                                <a href="{{stream.url}}" target="_blank" class="download-btn w-100">Download {{stream.resolution}}</a>
+                                {% endfor %}
+                        </div>
+                        <div class="style-card">
+                            <h3 class="card-title">audio</h3>
+                                <a href="{{audio_stream.url}}" target="_blank" class="download-btn w-100">Download {{audio_size}} MB</a>
+                        </div>
+                    </div>
+                    {% endif %}
+                </section>
+
+            </div>
+        </div>
+        <div class="footer">
+            <div class="meta">
+                <div class="meta-advanced">
+                    <div class="mark">
+                        © 2022 Videoco
+                      </div>
+                    <div class="grid">
+                        <div class="github">
+                            <p>Designed and developed by</p>&nbsp;
+                            <a href="https://github.com/Ellipsion">Ellipsion</a>
+                        </div>
+                        <div class="django">
+                            <p>Powered by <span><a href="https://www.djangoproject.com/">Django</a></span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="{% static 'app/js/script.js' %}" ></script>
+</body>
+</html>
