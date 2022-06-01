@@ -12,8 +12,8 @@ def searchView(request):
     if request.POST:
         template_name = 'app/index.html'
         vid_url = request.POST.get("yt_url")
-        yt_obj = yt(url=vid_url)
         try:
+            yt_obj = yt(url=vid_url)
             title = yt_obj.title
             thumb_url = yt_obj.thumbnail_url
             streams = yt_obj.streams
