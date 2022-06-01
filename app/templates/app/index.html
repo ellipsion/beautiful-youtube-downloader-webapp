@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="favicon" href="{% static 'app/images/icon.png' %}">
+    <link rel="icon" type="image/png" href="{% static 'app/images/favicon.png' %}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{% static 'app/css/newstyle.css' %}">
     <title>Videoco</title>
 </head>
@@ -22,7 +22,7 @@
                         <span  class="icon">
                             <img src="{% static 'app/images/icon.png' %}" alt="">
                         </span>
-                        <span  class="text">Videoco Video Downloader</span>
+                        <span  class="text">Videoco</span>
                     </a>
                 </div>
             </div>
@@ -32,14 +32,15 @@
             <div class="container">
                 <section class="main-hero-section">
                     <div class="hero-content-wrap">
-                        <h1 class="title"> YouTube Downloader </h1>
-                        <form class="search-wrap"  action="/search/" method="POST">
+                        <h1 class="title" id="title"> YouTube Downloader </h1>
+                        <form class="search-wrap" id="form" action="/search/" method="POST">
                             {% csrf_token %}
                             <div class="search-input">
-                                <input type="url" class="search-input-input" name="yt_url" placeholder="Paste youtube url here...">
+                                <input id="url-input" type="url" class="search-input-input" name="yt_url" placeholder="Paste youtube url here...">
                             </div>
-                            <button class="search-btn">
+                            <button class="search-btn" id="search-btn">
                                 Search
+                                <i class="fa fa-circle-o-notch fa-spin loading-icon hidden" id="loading-icon"></i>
                             </button>
                         </form>
                     </div>
@@ -53,11 +54,16 @@
                         <div class="style-card style-card-thumb">
                             <img src="{{thumb_url}}" alt="">
                         </div>
-                        {% for stream  in streams %}
                         <div class="style-card">
+                            <h3 class="card-title">video</h3>
+                                {% for stream  in streams %}
                                 <a href="{{stream.url}}" target="_blank" class="download-btn w-100">Download {{stream.resolution}}</a>
-                            </div>
-                        {% endfor %}
+                                {% endfor %}
+                        </div>
+                        <div class="style-card">
+                            <h3 class="card-title">audio</h3>
+                                <a href="{{audio_stream.url}}" target="_blank" class="download-btn w-100">Download {{audio_size}} MB</a>
+                        </div>
                     </div>
                     {% endif %}
                 </section>
@@ -83,5 +89,7 @@
             </div>
         </div>
     </div>
+    
+    <script src="{% static 'app/js/script.js' %}" ></script>
 </body>
 </html>
