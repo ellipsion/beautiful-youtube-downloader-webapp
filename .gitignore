@@ -1,2 +1,5 @@
 env/
 ui/
+*.pyc
+__pycache__
+**/migrations/
