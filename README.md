@@ -14,7 +14,7 @@ A web application built with Django, HTML, CSS, and JavaScript for downloading Y
 ## Tech Stack
 
 - Django
-- YouTube-dl
+- Pytube
 - HTML
 - CSS
 - JavaScript
@@ -45,7 +45,7 @@ Released under the MIT License.
 
 ## Acknowledgements
 
-Utilizes Django, YouTube-dl, and FFmpeg.
+Utilizes Django, Pytube, and FFmpeg.
 
 ## Disclaimer
 
